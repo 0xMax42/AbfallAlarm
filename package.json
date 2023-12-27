@@ -1,13 +1,13 @@
 {
   "name": "abfallalarm",
   "displayName": "AbfallAlarm",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "AbfallAlarm ist eine intuitive und benutzerfreundliche WebApp, die darauf abzielt, das Leben der Bürger von Arnsberg zu vereinfachen, indem sie eine zuverlässige Erinnerungsfunktion für den städtischen Abfallkalender bietet.",
   "main": "index.js",
   "scripts": {
-    "build:patch": "webpack --config webpack.config.js --mode production && npm run bump-version patch && npm run copy-release && npm run zip-release",
-    "build:minor": "webpack --config webpack.config.js --mode production && npm run bump-version minor && npm run copy-release && npm run zip-release",
-    "build:major": "webpack --config webpack.config.js --mode production && npm run bump-version major && npm run copy-release && npm run zip-release",
+    "build:patch": "npm run bump-version patch && webpack --config webpack.config.js --mode production && npm run copy-release && npm run zip-release",
+    "build:minor": "npm run copy-release && webpack --config webpack.config.js --mode production && npm run zip-release",
+    "build:major": "npm run bump-version major && webpack --config webpack.config.js --mode production && npm run copy-release && npm run zip-release",
     "bump-version": "node bump-version.js",
     "copy-release": "node copy-release-docs.js",
     "zip-release": "node zip-release.js",

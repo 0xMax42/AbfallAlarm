@@ -1,9 +1,13 @@
 // main.ts
 import IcsModifier from './IcsModifier';
+import { version } from './version';
 
 // Event listener for DOMContentLoaded to initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Loading the WebApp...');
+    console.log('Loading the WebApp Version ' + version + '...');
+
+    const versionTag = document.getElementById('footer-version') as HTMLSpanElement;
+    versionTag.innerText = `Version: ${version}`;
 
     const workButton = document.getElementById('work-button') as HTMLButtonElement;
     const fileInput = document.getElementById('ical-upload') as HTMLInputElement;
