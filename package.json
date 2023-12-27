@@ -1,14 +1,16 @@
 {
   "name": "abfallalarm",
+  "displayName": "AbfallAlarm",
   "version": "0.1.2",
   "description": "AbfallAlarm ist eine intuitive und benutzerfreundliche WebApp, die darauf abzielt, das Leben der Bürger von Arnsberg zu vereinfachen, indem sie eine zuverlässige Erinnerungsfunktion für den städtischen Abfallkalender bietet.",
   "main": "index.js",
   "scripts": {
-    "build:patch": "webpack --config webpack.config.js --mode production && npm run bump-version patch && npm run copy-release",
-    "build:minor": "webpack --config webpack.config.js --mode production && npm run bump-version minor && npm run copy-release",
-    "build:major": "webpack --config webpack.config.js --mode production && npm run bump-version major && npm run copy-release",
+    "build:patch": "webpack --config webpack.config.js --mode production && npm run bump-version patch && npm run copy-release && npm run zip-release",
+    "build:minor": "webpack --config webpack.config.js --mode production && npm run bump-version minor && npm run copy-release && npm run zip-release",
+    "build:major": "webpack --config webpack.config.js --mode production && npm run bump-version major && npm run copy-release && npm run zip-release",
     "bump-version": "node bump-version.js",
     "copy-release": "node copy-release-docs.js",
+    "zip-release": "node zip-release.js",
     "start": "webpack serve --config webpack.config.js --mode development",
     "stop": "sh stop-server.sh"
   },
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/PxaMMaxP/AbfallAlarm#readme",
   "devDependencies": {
+    "archiver": "^6.0.1",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
