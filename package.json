@@ -1,10 +1,14 @@
 {
   "name": "abfallalarm",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "AbfallAlarm ist eine intuitive und benutzerfreundliche WebApp, die darauf abzielt, das Leben der Bürger von Arnsberg zu vereinfachen, indem sie eine zuverlässige Erinnerungsfunktion für den städtischen Abfallkalender bietet.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode production",
+    "build:patch": "webpack --config webpack.config.js --mode production && npm run bump-version patch && npm run copy-release",
+    "build:minor": "webpack --config webpack.config.js --mode production && npm run bump-version minor && npm run copy-release",
+    "build:major": "webpack --config webpack.config.js --mode production && npm run bump-version major && npm run copy-release",
+    "bump-version": "node bump-version.js",
+    "copy-release": "node copy-release-docs.js",
     "start": "webpack serve --config webpack.config.js --mode development",
     "stop": "sh stop-server.sh"
   },
@@ -27,6 +31,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "ical.js": "^1.5.0"
   }
 }
