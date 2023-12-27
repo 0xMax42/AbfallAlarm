@@ -1,7 +1,7 @@
 {
   "name": "abfallalarm",
   "displayName": "AbfallAlarm",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "AbfallAlarm ist eine intuitive und benutzerfreundliche WebApp, die darauf abzielt, das Leben der Bürger von Arnsberg zu vereinfachen, indem sie eine zuverlässige Erinnerungsfunktion für den städtischen Abfallkalender bietet.",
   "main": "index.js",
   "scripts": {

@@ -51,7 +51,11 @@ export default class IcsModifier {
         const hoursUntilMidnight = this.reminderHours === 0 ? 0 : 24 - this.reminderHours;
 
         // Use reminderDays directly as daysPart
-        const daysPart = this.reminderDays;
+        let daysPart = this.reminderDays;
+        // daysPart is 1 set to 0
+        if (daysPart === 1) {
+            daysPart = 0;
+        }
 
         // Create the trigger string
         const trigger = `-P${daysPart}DT${hoursUntilMidnight}H0M0S`;
