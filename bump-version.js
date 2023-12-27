@@ -31,3 +31,7 @@ packageJson.version = versionParts.join('.');
 // Zurückschreiben der package.json
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 console.log(`Version updated to ${packageJson.version}`);
+
+// Versionsnummer in Datei schreiben..
+const content = `export const version = '${packageJson.version}';\n`;
+fs.writeFileSync(path.join(__dirname, 'src', 'version.ts'), content);
